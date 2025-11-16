@@ -17,7 +17,7 @@ To encrypt a text message, simply call the `textEncrypt()` function:
 ```php
 $text = "This is a secret message";
 $encryptedText = textEncrypt($text);
-echo "Encrypted Text: " . $encryptedText;
+echo "Encrypted Text: $encryptedText";
 ```
 
 #### Decrypting Text:
@@ -27,9 +27,10 @@ To decrypt the previously encrypted text, use the `textDecrypt()` function:
 $encryptedText = "your_encrypted_text_here";
 $decryptedText = textDecrypt($encryptedText);
 
-if ($decryptedText !== false) {
-    echo "Decrypted Text: " . $decryptedText;
-} else {
+if($decryptedText !== false) {
+    echo "Decrypted Text: $decryptedText";
+}
+else {
     echo "Decryption failed or invalid encrypted text.";
 }
 ```
@@ -38,10 +39,11 @@ if ($decryptedText !== false) {
 You can check if a text is encrypted with the system using `isTextEncrypted()`:
 
 ```php
-$encodedText = "your_base64_encoded_text_here";
-if (isTextEncrypted($encodedText)) {
+$encodedText = "your_encoded_text_here";
+if(isTextEncrypted($encodedText)) {
     echo "The text is validly encrypted.";
-} else {
+}
+else {
     echo "The text is not validly encrypted.";
 }
 ```
@@ -50,9 +52,9 @@ if (isTextEncrypted($encodedText)) {
 Before using the functions, make sure to define the following constants:
 
 ```php
-define('ENCRYPT_KEY', 'YOUR_SECRET_KEY');      // Your encryption key
+define('ENCRYPT_KEY', 'YOUR_SECRET_KEY');       // Your encryption key (it could be anything like some random characters)
 define('ENCRYPT_SIZE', 32);                     // Block size (e.g., 32 bytes)
-define('ENCRYPT_SIGNATURE', 'YOUR_SIGNATURE');  // Custom signature for integrity
+define('ENCRYPT_SIGNATURE', 'YOUR_SIGNATURE');  // Custom signature for integrity (it could be anything like your name)
 ```
 
 ### Installation:
@@ -61,7 +63,7 @@ define('ENCRYPT_SIGNATURE', 'YOUR_SIGNATURE');  // Custom signature for integrit
 3. Set your encryption key (`ENCRYPT_KEY`) and signature (`ENCRYPT_SIGNATURE`) values.
 
 ```bash
-git clone https://github.com/yourusername/easy-text-encryptor.git
+git clone https://github.com/realSina/easy-text-encryptor.git
 ```
 
 ### Example:
@@ -75,11 +77,11 @@ define('ENCRYPT_SIGNATURE', 'MY_SECURE_SIGNATURE');
 // Encrypt text
 $originalText = "Hello, this is a secret message!";
 $encryptedText = textEncrypt($originalText);
-echo "Encrypted: " . $encryptedText . "\n";
+echo "Encrypted: $encryptedText\n";
 
 // Decrypt text
 $decryptedText = textDecrypt($encryptedText);
-echo "Decrypted: " . $decryptedText . "\n";
+echo "Decrypted: $decryptedText\n";
 ?>
 ```
 
